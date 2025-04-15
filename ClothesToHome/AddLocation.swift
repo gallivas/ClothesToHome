@@ -41,6 +41,7 @@ struct AddLocation: View {
             Button("Save Location") {
                 saveLocation()
             }
+            .disabled(name.isEmpty || streetAddress.isEmpty || city.isEmpty || state.isEmpty || postalCode.isEmpty || country.isEmpty)
         }
     }
     
