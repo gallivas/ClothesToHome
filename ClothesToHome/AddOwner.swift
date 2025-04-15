@@ -34,6 +34,11 @@ struct AddOwner: View {
     func saveOwner() {
         let newOwner = Owner(firstName: firstName, lastName: lastName, email: email)
         modelContext.insert(newOwner)
+        do {
+            try modelContext.save()
+        } catch {
+            print("Failed to save location: \(error.localizedDescription)")
+        }
         dismiss()
     }
 }

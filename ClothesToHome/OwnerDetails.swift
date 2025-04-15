@@ -25,7 +25,7 @@ struct OwnerDetails: View {
                 
                 Section("Locations") {
                     ForEach(owner.locations) { location in
-                        NavigationLink(destination: LocationDetails()) {
+                        NavigationLink(destination: LocationDetails(location: location)) {
                             Text("\(location.name)")
                         }
                     }
@@ -51,6 +51,9 @@ struct OwnerDetails: View {
         }
         .sheet(isPresented: $isShowingAddItemSheet) {
             AddItem(owner: owner)
+        }
+        .sheet(isPresented: $isShowingAddLocationSheet) {
+            AddLocation(owner: owner)
         }
     }
 }
