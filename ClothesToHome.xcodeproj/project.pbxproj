@@ -10,9 +10,22 @@
 		B76B6ADD2DA852F10054456C /* ClothesToHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClothesToHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		B7C6DB932DF7597800B220D7 /* Exceptions for "ClothesToHome" folder in "ClothesToHome" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = B76B6ADC2DA852F10054456C /* ClothesToHome */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		B76B6ADF2DA852F10054456C /* ClothesToHome */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				B7C6DB932DF7597800B220D7 /* Exceptions for "ClothesToHome" folder in "ClothesToHome" target */,
+			);
 			path = ClothesToHome;
 			sourceTree = "<group>";
 		};
@@ -256,6 +269,9 @@
 				DEVELOPMENT_TEAM = 75XQF38HDZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ClothesToHome/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Allow camera access to snap pictures of items.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Allow camera roll access to select pictures of items.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -284,6 +300,9 @@
 				DEVELOPMENT_TEAM = 75XQF38HDZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ClothesToHome/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Allow camera access to snap pictures of items.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Allow camera roll access to select pictures of items.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

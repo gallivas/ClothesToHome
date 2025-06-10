@@ -7,6 +7,7 @@
 //  Add Item to associated Owner
 //
 
+import PhotosUI
 import SwiftUI
 
 struct AddItem: View {
@@ -18,8 +19,11 @@ struct AddItem: View {
     @State private var category = ""
     @State private var condition = ""
     @State private var details = ""
-    @State private var photo = Data()
     @State private var brand = ""
+    
+    @State private var selectedItem: PhotosPickerItem?
+    @State private var itemImage: Data?
+    
     var locations: [Location] {
         owner.locations
     }
@@ -37,13 +41,21 @@ struct AddItem: View {
             Section("Item Name") {
                 TextField("*Item Name", text: $name)
             }
+            Section("Photo") {
+                HStack {
+                    Spacer()
+                    PhotoPickerView(selectedItem: $selectedItem, itemImage: $itemImage)
+                    Spacer()
+                }
+            }
+            
             Section(header: Text("Item Details")) {
                 TextField("*Category", text: $category)
                 TextField("Condition (Optional)", text: $condition)
                 TextField("*Details", text: $details)
-//                TextField("*Photo", text: $photo)
                 TextField("*Brand", text: $brand)
             }
+            
             Section(header: Text("Location")) {
                 if locations.isEmpty {
                     Button("Create New Location") {
@@ -69,7 +81,7 @@ struct AddItem: View {
     }
     
     func saveItem() {
-        let newItem = Item(name: name, category: category, condition: condition, details: details, photo: photo, brand: brand, location: location!, owner: owner)
+        let newItem = Item(name: name, category: category, condition: condition, details: details, photo: itemImage, brand: brand, location: location!, owner: owner)
         owner.items.append(newItem)
         modelContext.insert(newItem)
         do {
