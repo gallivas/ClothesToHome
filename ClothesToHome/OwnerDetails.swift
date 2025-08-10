@@ -22,6 +22,7 @@ struct OwnerDetails: View {
                         Text("\(item.name)")
                     }
                 }
+                // TODO: Delete item (swipe gesture)
                 
                 Section("Locations") {
                     ForEach(owner.locations) { location in
@@ -30,6 +31,7 @@ struct OwnerDetails: View {
                         }
                     }
                 }
+                // TODO: Delete location (swipe gesture, cascade deletes items stored at this location)
             }
             .navigationTitle(Text("\(owner.firstName) \(owner.lastName)"))
             .toolbar {

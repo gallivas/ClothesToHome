@@ -5,6 +5,7 @@
 //  Created by Stephen Gallivan on 4/15/25.
 //
 
+import CoreLocation
 import SwiftUI
 
 struct AddLocation: View {
@@ -54,6 +55,16 @@ struct AddLocation: View {
         } catch {
             print("Failed to save location: \(error.localizedDescription)")
         }
+        let fullAddress = "\(streetAddress), \(city), \(state) \(postalCode), \(country)"
+        
+        getCoordinate(addressString: fullAddress) { coordinate, error in
+            if CLLocationCoordinate2DIsValid(coordinate) {
+                newLocation.latitude = coordinate.latitude
+                newLocation.longitude = coordinate.longitude
+                try? modelContext.save()
+            }
+        }
+        
         dismiss()
     }
 }

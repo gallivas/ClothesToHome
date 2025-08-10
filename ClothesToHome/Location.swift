@@ -19,6 +19,8 @@ class Location: Identifiable {
     var postalCode: String
     var country: String
     var owners: [Owner]?
+    var latitude: Double?
+    var longitude: Double?
     @Relationship(deleteRule: .cascade, inverse: \Item.location) var items: [Item]
     
     init(name: String, streetAddress: String, apartmentNumber: String? = nil, city: String, state: String, postalCode: String, country: String, owners: [Owner]? = nil) {
