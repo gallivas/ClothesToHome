@@ -19,7 +19,9 @@ struct OwnerDetails: View {
             List {
                 Section("Items") {
                     ForEach(owner.items) { item in
-                        Text("\(item.name)")
+                        NavigationLink(destination: ItemDetails(item: item)) {
+                            Text("\(item.name)")
+                        }
                     }
                 }
                 // TODO: Delete item (swipe gesture)
