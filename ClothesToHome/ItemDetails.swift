@@ -9,6 +9,8 @@ import MapKit
 import SwiftUI
 
 struct ItemDetails: View {
+    @Environment(\.modelContext) var modelContext
+    @Environment(\.dismiss) private var dismiss
     let item: Item
     var attributes: [(label: String, value: String)] {
         [
@@ -49,6 +51,23 @@ struct ItemDetails: View {
             }
         }
         .navigationTitle("Item Details")
+        .toolbar {
+            Menu("Actions") {
+                Button("Edit") {
+                    
+                }
+                Button("Delete") {
+                    modelContext.delete(item)
+                    do {
+                        try modelContext.save()
+                    } catch {
+                        print("Failed to delete item: \(error.localizedDescription)")
+                    }
+                    dismiss()
+                }
+                
+            }
+        }
     }
 }
 

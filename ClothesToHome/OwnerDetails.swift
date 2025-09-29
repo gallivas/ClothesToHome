@@ -10,6 +10,7 @@
 import SwiftUI
 
 struct OwnerDetails: View {
+    @Environment(\.modelContext) var modelContext
     var owner: Owner
     @State private var isShowingAddItemSheet = false
     @State private var isShowingAddLocationSheet = false
@@ -22,6 +23,13 @@ struct OwnerDetails: View {
                         NavigationLink(destination: ItemDetails(item: item)) {
                             Text("\(item.name)")
                         }
+                    }
+                    .onDelete { indexSet in
+                        for index in indexSet {
+                            let item = owner.items[index]
+                            modelContext.delete(item)
+                        }
+                        try? modelContext.save()
                     }
                 }
                 // TODO: Delete item (swipe gesture)
