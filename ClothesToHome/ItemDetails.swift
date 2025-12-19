@@ -22,6 +22,9 @@ struct ItemDetails: View {
             ("Owner", item.owner.firstName)
         ]
     }
+    
+    @State private var showEdit = false
+    
     var body: some View {
         Form {
             Section {
@@ -54,7 +57,7 @@ struct ItemDetails: View {
         .toolbar {
             Menu("Actions") {
                 Button("Edit") {
-                    
+                    showEdit = true
                 }
                 Button("Delete") {
                     modelContext.delete(item)
@@ -66,6 +69,9 @@ struct ItemDetails: View {
                     dismiss()
                 }
                 
+            }
+            .navigationDestination(isPresented: $showEdit) {
+                EditItem(item: item)
             }
         }
     }

@@ -52,8 +52,8 @@ struct AddItem: View {
             Section(header: Text("Item Details")) {
                 TextField("*Category", text: $category)
                 TextField("Condition (Optional)", text: $condition)
-                TextField("*Details", text: $details)
-                TextField("*Brand", text: $brand)
+                TextField("Details (Optional)", text: $details)
+                TextField("Brand (Optional)", text: $brand)
             }
             
             Section(header: Text("Location")) {
